@@ -1,0 +1,30 @@
+[versions]
+jvm = "1.8"
+kotlin = "1.6.21"
+kotlinx-coroutines = "1.6.4"
+kotest = "5.5.5"
+spring = "5.3.27"
+spring-boot = "2.7.11"
+byte-buddy = "1.14.4"
+skippy = "0.0.19"
+
+[libraries]
+kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.ref = "kotlin" }
+kotlinx-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+
+kotest-framework-datatest = { group = "io.kotest", name = "kotest-framework-datatest", version.ref = "kotest" }
+kotest-framework-api = { group = "io.kotest", name = "kotest-framework-api", version.ref = "kotest" }
+kotest-property = { group = "io.kotest", name = "kotest-property", version.ref = "kotest" }
+kotest-runner-junit5 = { group = "io.kotest", name = "kotest-runner-junit5", version.ref = "kotest" }
+
+spring-context = { group = "org.springframework", name = "spring-context", version.ref = "spring" }
+spring-test = { group = "org.springframework", name = "spring-test", version.ref = "spring" }
+spring-boot-test = { group = "org.springframework.boot", name = "spring-boot-starter-test", version.ref = "spring-boot" }
+
+byteBuddy = { group = "net.bytebuddy", name = "byte-buddy", version.ref = "byte-buddy" }
+skippy-core = { group = "io.skippy", name = "skippy-core", version.ref = "skippy" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
+skippy = { id = "io.skippy", version.ref = "skippy" }
