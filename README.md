@@ -21,3 +21,5 @@ object KotestConfig : AbstractProjectConfig() {
 
 Now, when you run tests using Gradle, Skippy will automatically skip tests that have not been affected by any change 
 since they were last executed successfully.
+
+Currently the resolution of Skippy is entire files/classes. So every Spec is instrumented as one unit, and if any class it touches during testing changes, all tests will re-run.
