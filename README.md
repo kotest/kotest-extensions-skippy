@@ -1,6 +1,6 @@
 Kotest wrapper for using [Skippy](https://www.skippy.io) for test execution prediction.
 
-Skippy analyzes JaCoCo coverage during test execution to determine what affects test which classes.
+Skippy uses JaCoCo coverage from past test executions to determine the tests that cover any modified code, and runs only the relevant tests.
 
 ## Usage
 
