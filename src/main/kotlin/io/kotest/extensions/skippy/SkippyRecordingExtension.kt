@@ -1,14 +1,11 @@
 package io.kotest.extensions.skippy
 
-import io.kotest.core.extensions.TestCaseExtension
 import io.kotest.core.listeners.AfterSpecListener
 import io.kotest.core.listeners.BeforeSpecListener
 import io.kotest.core.spec.Spec
-import io.kotest.core.test.TestCase
-import io.kotest.core.test.TestResult
 import io.skippy.core.SkippyTestApi
 
-object SkippyExtension : BeforeSpecListener, AfterSpecListener, TestCaseExtension {
+object SkippyRecordingExtension : BeforeSpecListener, AfterSpecListener {
     private val skippy = SkippyTestApi.INSTANCE
 
     override suspend fun beforeSpec(spec: Spec) {
@@ -17,13 +14,6 @@ object SkippyExtension : BeforeSpecListener, AfterSpecListener, TestCaseExtensio
             skippy.prepareExecFileGeneration(spec::class.java)
         }
     }
-
-    override suspend fun intercept(testCase: TestCase, execute: suspend (TestCase) -> TestResult): TestResult =
-        if (testCase.spec.shouldExecute()) {
-            execute(testCase)
-        } else {
-            TestResult.Ignored
-        }
 
     override suspend fun afterSpec(spec: Spec) {
         if (spec.shouldExecute()) {

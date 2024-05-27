@@ -5,6 +5,9 @@ import io.kotest.core.extensions.Extension
 
 object KotestConfig : AbstractProjectConfig() {
     override fun extensions(): List<Extension> {
-        return listOf(SkippyExtension)
+        return listOf(
+            SkippyRecordingExtension,
+            SkippyPredictionExtension,
+        )
     }
 }
