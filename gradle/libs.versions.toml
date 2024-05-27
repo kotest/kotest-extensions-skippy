@@ -1,12 +1,12 @@
 [versions]
 jvm = "1.8"
-kotlin = "1.6.21"
+kotlin = "1.9.24"
 kotlinx-coroutines = "1.6.4"
 kotest = "5.5.5"
 spring = "5.3.27"
 spring-boot = "2.7.11"
 byte-buddy = "1.14.4"
-skippy = "0.0.19"
+skippy = "0.0.20"
 
 [libraries]
 kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.ref = "kotlin" }
@@ -16,6 +16,7 @@ kotest-framework-datatest = { group = "io.kotest", name = "kotest-framework-data
 kotest-framework-api = { group = "io.kotest", name = "kotest-framework-api", version.ref = "kotest" }
 kotest-property = { group = "io.kotest", name = "kotest-property", version.ref = "kotest" }
 kotest-runner-junit5 = { group = "io.kotest", name = "kotest-runner-junit5", version.ref = "kotest" }
+mockk = { group = "io.mockk", name = "mockk", version = "1.13.11" }
 
 spring-context = { group = "org.springframework", name = "spring-context", version.ref = "spring" }
 spring-test = { group = "org.springframework", name = "spring-test", version.ref = "spring" }

@@ -1,20 +1,22 @@
 package io.kotest.extensions.skippy
 
-import io.kotest.core.extensions.TestCaseExtension
+import io.kotest.core.extensions.SpecExtension
 import io.kotest.core.spec.Spec
-import io.kotest.core.test.TestCase
-import io.kotest.core.test.TestResult
 import io.skippy.core.SkippyTestApi
 
-object SkippyPredictionExtension : TestCaseExtension {
-    private val skippy = SkippyTestApi.INSTANCE
+/**
+ * An extension that will skip the Spec if Skippy determines that it does not need to be executed.
+ */
+class SkippyPredictionExtension(
+   private val skippy: SkippyTestApi = SkippyTestApi.INSTANCE
+) : SpecExtension{
 
-    override suspend fun intercept(testCase: TestCase, execute: suspend (TestCase) -> TestResult): TestResult =
-        if (testCase.spec.shouldExecute()) {
-            execute(testCase)
-        } else {
-            TestResult.Ignored
-        }
+   override suspend fun intercept(spec: Spec, execute: suspend (Spec) -> Unit) {
+      if (spec.shouldExecute()) {
+         execute(spec)
+      }
+   }
 
-    private fun Spec.shouldExecute() = skippy.testNeedsToBeExecuted(this::class.java)
+
+   private fun Spec.shouldExecute() = skippy.testNeedsToBeExecuted(this@shouldExecute::class.java)
 }
