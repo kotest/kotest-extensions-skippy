@@ -6,7 +6,7 @@ skippy = "0.0.20"
 [libraries]
 kotest-framework-api = { group = "io.kotest", name = "kotest-framework-api", version.ref = "kotest" }
 kotest-runner-junit5 = { group = "io.kotest", name = "kotest-runner-junit5", version.ref = "kotest" }
-mockk = { group = "io.mockk", name = "mockk", version = "1.13.11" }
+mockk = { group = "io.mockk", name = "mockk", version = "1.13.17" }
 
 skippy-core = { group = "io.skippy", name = "skippy-core", version.ref = "skippy" }
 
